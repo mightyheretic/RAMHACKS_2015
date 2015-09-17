@@ -2,11 +2,11 @@ package edu.vcu.ramhacks.fragments;
 
 
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,7 +16,6 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.interaxon.libmuse.Accelerometer;
 import com.interaxon.libmuse.AnnotationData;
 import com.interaxon.libmuse.ConnectionState;
 import com.interaxon.libmuse.Eeg;
@@ -42,8 +41,6 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.ButterKnife;
-import butterknife.InjectView;
 import edu.vcu.ramhacks.R;
 
 public class EEGFragment extends Fragment implements OnClickListener {
@@ -220,7 +217,7 @@ public class EEGFragment extends Fragment implements OnClickListener {
                                 
                         if(SumDiff > 0.40){
                             truth.setText("Lie / Stresed");
-                            truth.setBackgroundColor(Color.Red);
+                            truth.setBackgroundColor(Color.RED);
                         }
                         else if(SumDiff < 0.35){
                             truth.setText("Truth / Calm");
@@ -429,7 +426,7 @@ public class EEGFragment extends Fragment implements OnClickListener {
         fileWriter.addAnnotationString(1, "MainActivity onCreate");
         dataListener.setFileWriter(fileWriter);
         index = 0;
-        full = 0;
+        size = 0;
         alpha = new double[1000];
         beta= new double[1000];
         gamma= new double[1000];
